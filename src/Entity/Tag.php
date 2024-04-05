@@ -30,6 +30,11 @@ class Tag
     #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'tag')]
     private Collection $products;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
